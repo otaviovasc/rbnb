@@ -1,0 +1,23 @@
+<h1>Find the ideal accommodation for you</h1>
+
+<div class="cards">
+
+  <% @accommodations.each do |accommodation| %>
+
+    <div class="card-trip">
+
+      <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
+
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= accommodation.title %></h2>
+          <p><%= accommodation.address %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= accommodation.price %></h2>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
+

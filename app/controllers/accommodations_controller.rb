@@ -1,5 +1,9 @@
 class AccommodationsController < ApplicationController
-  before_action :authenticate_user!, :set_accommodation, only: %i[show]
+  skip_before_action :authenticate_user!, only: :index
+
+  def index
+    @accommodations = Accommodation.all
+  end
 
   def new
     @accommodation = Accommodation.new

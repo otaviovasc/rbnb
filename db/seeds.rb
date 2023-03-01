@@ -9,6 +9,6 @@ buyer = User.create!(name: "Klingont Sbubble", home_planet: "Saturn", email: "kl
 puts "Users created"
 
 puts "Creating accommodation"
-seller_accommodation = Accommodation.create!(title: "Nice home in Jupter", address: "Jupter east coast", category: "Floating home", user: seller)
-buyer_accommodation = Accommodation.create!(title: "Flat in Saturn", address: "First left after the large ring", category: "Gas made flat", user: buyer)
+Accommodation.create!(title: "Nice home in Jupter", address: "Jupter east coast", category: "Floating home", price: 110 , user: seller)
+Accommodation.create!(title: "Flat in Saturn", address: "First left after the large ring", category: "Gas made flat", price: 110, user: buyer)
 puts "Accommodation created"
