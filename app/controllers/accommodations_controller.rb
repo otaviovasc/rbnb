@@ -1,5 +1,5 @@
 class AccommodationsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :set_accommodation, only: %i[show]
 
   def new
     @accommodation = Accommodation.new
@@ -14,6 +14,11 @@ class AccommodationsController < ApplicationController
     else
       render new_accommodation_path, status: :unprocessable_entity
     end
+
+  def show
+    @accommodation = Accommodation.new
+  end
+
   end
 
   private
@@ -21,4 +26,8 @@ class AccommodationsController < ApplicationController
   def accommodations_params
     params.require(:accommodation).permit(:title, :address, :price, :category, :description)
   end
+end
+
+def set_accommodation
+  @accommodation = Accommodation.find(params[:id])
 end
