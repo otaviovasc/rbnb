@@ -15,9 +15,7 @@ class AccommodationsController < ApplicationController
       render new_accommodation_path, status: :unprocessable_entity
     end
 
-  def show
-    @accommodation = Accommodation.new
-  end
+  def show; end
 
   end
 
