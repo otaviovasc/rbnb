@@ -1,5 +1,6 @@
 puts "Cleaning database"
 User.destroy_all
+Accommodation.destroy_all
 puts "Database cleaned"
 
 puts "Creating users"
