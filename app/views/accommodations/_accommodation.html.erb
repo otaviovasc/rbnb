@@ -1,44 +1,20 @@
-<div class="container mt-3" >
+  <h2 style="padding: 10px 0 10px 3px;"><%= @accommodation.title  %> </h2>
 
   <div class="card-trip", >
-    <h2 style="padding: 10px 0 10px 3px;"><%= @accommodation.title  %> </h2>
     <%# Colocar no image_tag imagem referente à accommodation correta %>
     <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
-    <div class="card-trip-infos">
-      <div>
-        <p> <%= @accommodation.description %> </p>
+    <div class="row">
+      <div class="card-trip-infos">
+        <div class="col-8">
+          <p> <%= @accommodation.description %> </p>
+        </div>
+
+        <div class="col-4">
+              <%= image_tag "https://images.unsplash.com/photo-1635373670332-43ea883bb081?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=381&q=80", class: "avatar-bordered" %>
+              <h2 class="card-trip-pricing">$ <%= @accommodation.price %></h2>
+              <%# Colocar no image_tag imagem referente ao user owner do imóvel %>
+              <%= link_to "Book this place", new_accommodation_rental_path(@accommodation), class: "btn btn-primary" %>
+        </div>
       </div>
-        <h2 class="card-trip-pricing"><%= @accommodation.price %></h2>
-        <%# Colocar no image_tag imagem referente ao user owner do imóvel %>
-        <%= image_tag "https://images.unsplash.com/photo-1635373670332-43ea883bb081?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=381&q=80", class: "avatar-bordered" %>
     </div>
   </div>
-
-  <div>
-    <p>
-      <strong>Title:</strong>
-      <%= accommodation.title %>
-    </p>
-
-    <p>
-      <strong>Address:</strong>
-      <%= accommodation.address %>
-    </p>
-
-    <p>
-      <strong>Category:</strong>
-      <%= accommodation.category %>
-    </p>
-
-    <p>
-      <strong>Owner:</strong>
-      <%= @accommodation.user.name %>
-    </p>
-
-    <p>
-      <strong>Price:</strong>
-      <%= @accommodation.price %>
-    </p>
-  </div>
-
-</div>
