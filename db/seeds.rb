@@ -14,10 +14,10 @@ vitor = User.create!(name: "Vitor", home_planet: "Pluto", email: "vitor@teste.co
 puts "Users created"
 
 puts "Creating accommodation"
-Accommodation.create!(title: "Nice home in Jupter", address: "Jupter east coast", category: "Floating home", price: 112, user: seller)
-Accommodation.create!(title: "Flat in Saturn", address: "First left after the large ring", category: "Gas made flat", price: 123, user: buyer)
-Accommodation.create!(title: "Nice ship in Mars orbit", address: "Mars Orbit", category: "Space Ship", price: 230, user: bruno)
-Accommodation.create!(title: "Flat in Pluto", address: "Pluto's ave, 1", category: "Gas made flat", price: 12.5, user: araceli)
-Accommodation.create!(title: "Neptune Hole", address: "Neptune", category: "TesteCategory", price: 101 , user: otavio)
-Accommodation.create!(title: "Teste2", address: "Pluto's ave, 2", category: "TesteCategory", price: 32, user: vitor)
+Accommodation.create!(title: "Nice home in Jupter", address: "Jupter east coast", category: "Floating home", price: 112, user: seller, description: "Very nice place in Jupter")
+Accommodation.create!(title: "Flat in Saturn", address: "First left after the large ring", category: "Gas made flat", price: 123, user: buyer, description: "Very nice place in Saturn")
+Accommodation.create!(title: "Nice ship in Mars orbit", address: "Mars Orbit", category: "Space Ship", price: 230, user: bruno, description: "Very nice place in Mars")
+Accommodation.create!(title: "Flat in Pluto", address: "Pluto's ave, 1", category: "Gas made flat", price: 12.5, user: araceli, description: "Very place home in Pluto")
+Accommodation.create!(title: "Neptune Hole", address: "Neptune", category: "TesteCategory", price: 101, user: otavio, description: "Very nice place in Neptune")
+Accommodation.create!(title: "Teste2", address: "Pluto's ave, 2", category: "TesteCategory", price: 32, user: vitor, description: "Very nice place in Pluto's ave 2")
 puts "Accommodation created"
