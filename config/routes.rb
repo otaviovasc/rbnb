@@ -9,4 +9,8 @@ Rails.application.routes.draw do
     get "my_accommodations", on: :collection
     resources :rentals, only: %i[new create]
   end
+
+  resources :rentals, only: %i[destroy] do
+    get 'bookings', on: :collection
+  end
 end
