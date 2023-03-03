@@ -1,5 +1,5 @@
 class AccommodationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_accommodation, only: %i[show edit update destroy]
 
   def index
@@ -35,15 +35,19 @@ class AccommodationsController < ApplicationController
 
   def destroy
     @accommodation.destroy
-    redirect_to restaurants_url, notice: "Accommodation was successfully destroyed."
+    redirect_to accommodations_url, notice: "Accommodation was successfully destroyed."
   end
 
   def show; end
 
+  def my_accommodations
+    @accommodations = Accommodation.where(user_id: current_user)
+  end
+
   private
 
   def accommodations_params
-    params.require(:accommodation).permit(:title, :address, :price, :category, :description)
+    params.require(:accommodation).permit(:title, :address, :price, :category, :description, :photo)
   end
 
   def set_accommodation
