@@ -1,5 +1,5 @@
 <div class="container mt-3">
+  <%= link_to "Back", accommodations_path, class: "btn btn-primary mb-4" %>
+  <h1 style="padding: 10px 0 10px 3px;"><%= @accommodation.title  %> </h1>
   <%= render @accommodation %>
-
-  <%= link_to "Back to accommodations", accommodations_path, class: "btn btn-primary" %>
 </div>

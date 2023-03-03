@@ -1,4 +1,3 @@
-  <h2><%= @accommodation.title  %> </h2>
 
   <div class="card-trip", >
     <%# Colocar no image_tag imagem referente à accommodation correta %>
@@ -10,15 +9,20 @@
     <div class="row">
       <div class="card-trip-infos">
         <div class="col-8">
-          <p> <%= @accommodation.description %> </p>
+          <p style="font-size:16px;"> <%= @accommodation.description %> </p>
         </div>
 
         <div class="col-4">
-              <%= image_tag "user_photo.jpeg", class: "avatar-bordered card-trip-user" %>
-              <h2 class="card-trip-pricing">$ <%= @accommodation.price %></h2>
-              <%# Colocar no image_tag imagem referente ao user owner do imóvel %>
-              <%= link_to "Book this place", new_accommodation_rental_path(@accommodation), class: "btn btn-primary" %>
+          <div class="card-trip-pricing">
+            <%= image_tag "user_photo.jpeg", class: "avatar-bordered card-trip-user" %>
+            <h2>$ <%= @accommodation.price %> / day</h2>
+            <%# Colocar no image_tag imagem referente ao user owner do imóvel %>
+            <%= link_to "Book this place", new_accommodation_rental_path(@accommodation), class: "button-gradient", style: "text-decoration: none; float: right;"%>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+<!-- HTML !-->
+<%# <button class="button-gradient" role="button">Button 85</button> %>
