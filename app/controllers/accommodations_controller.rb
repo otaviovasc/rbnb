@@ -35,7 +35,7 @@ class AccommodationsController < ApplicationController
 
   def destroy
     @accommodation.destroy
-    redirect_to restaurants_url, notice: "Accommodation was successfully destroyed."
+    redirect_to accommodations_url, notice: "Accommodation was successfully destroyed."
   end
 
   def show; end
