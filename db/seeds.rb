@@ -14,10 +14,10 @@ vitor = User.create!(name: "Vitor", home_planet: "Pluto", email: "vitor@teste.co
 puts "Users created"
 
 puts "Creating accommodation"
-Accommodation.create!(title: "Nice home in Jupter", address: "Jupter east coast", category: "Floating home", price: 112, user: seller, description: "Very nice place in Jupter")
-Accommodation.create!(title: "Flat in Saturn", address: "First left after the large ring", category: "Gas made flat", price: 123, user: buyer, description: "Very nice place in Saturn")
-Accommodation.create!(title: "Nice ship in Mars orbit", address: "Mars Orbit", category: "Space Ship", price: 230, user: bruno, description: "Very nice place in Mars")
-Accommodation.create!(title: "Flat in Pluto", address: "Pluto's ave, 1", category: "Gas made flat", price: 12.5, user: araceli, description: "Very place home in Pluto")
-Accommodation.create!(title: "Neptune Hole", address: "Neptune", category: "TesteCategory", price: 101, user: otavio, description: "Very nice place in Neptune")
-Accommodation.create!(title: "Teste2", address: "Pluto's ave, 2", category: "TesteCategory", price: 32, user: vitor, description: "Very nice place in Pluto's ave 2")
+Accommodation.create!(title: "Nice home in Jupter", address: "Jupter east coast", category: "Floating home", price: 112, user: seller, description: "Very nice place in Jupter. The house is completely sealed and pressurized structure to protect against the planet's extreme atmospheric conditions.")
+Accommodation.create!(title: "Flat in Saturn", address: "First left after the large ring", category: "Gas made flat", price: 123, user: buyer, description: "Very nice place in Saturn. The flat is designed to generate its own power, since solar power would not be an option in Titan's dim sunlight.")
+Accommodation.create!(title: "Nice ship in Mars orbit", address: "Mars Orbit", category: "Space Ship", price: 230, user: bruno, description: "Very nice place in Mars. The home include hydroponic gardens or other sustainable food sources to provide for basic needs, as well as advanced water recycling systems to conserve and recycle water")
+Accommodation.create!(title: "Flat in Pluto", address: "Pluto's ave, 1", category: "Gas made flat", price: 12.5, user: araceli, description: "Nice flat in Pluto stays in a sealed dome structure, using highly insulated materials such as ceramic or metallic composites.")
+Accommodation.create!(title: "Neptune Hole", address: "Zeus street, 45", category: "Space Ship", price: 101, user: otavio, description: "Very nice place in Neptune in a deep subterranean environment to protect against the extreme atmospheric conditions.")
+Accommodation.create!(title: "Nice view in Mercury", address: "Solar power ave, 30", category: "Floating home", price: 320, user: vitor, description: "Very nice place in Solar power ave, 30. The house is designed to maintain a comfortable and livable environment despite the extreme conditions outside.")
 puts "Accommodation created"
