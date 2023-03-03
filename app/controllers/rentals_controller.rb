@@ -18,6 +18,10 @@ class RentalsController < ApplicationController
     end
   end
 
+  def bookings
+    @bookings = Rental.where(user_id: current_user)
+  end
+
   private
 
   def set_accommodation

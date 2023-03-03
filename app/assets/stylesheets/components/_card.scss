@@ -45,6 +45,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  color: #000000;
 
   img {
     height: 200px;
@@ -68,7 +69,6 @@
     padding: 16px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
     position: relative;
   }
 

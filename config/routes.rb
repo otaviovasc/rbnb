@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   resources :accommodations, only: %i[index new create show] do
     resources :rentals, only: %i[new create]
   end
+
+  resources :rentals, only: %i[destroy] do
+    get 'bookings', on: :collection
+  end
 end

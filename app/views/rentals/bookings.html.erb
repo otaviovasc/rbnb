@@ -1,0 +1,25 @@
+<h1>My bookings</h1>
+
+<div class="card">
+
+  <% @bookings.each do |rental| %>
+    <%= link_to accommodation_path(rental.accommodation), class:"text-decoration-none" do %>
+      <div class="card-trip">
+        <%# Change to users images/photos %>
+        <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
+
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= rental.accommodation.title %></h2>
+            <p><%= rental.accommodation.address %></p>
+          </div>
+          <div class="card-trip-pricing">
+            <h3>$<%= rental.total_price %></h3>
+            <p>Check in: <%= rental.start_date %></p>
+            <p>Check out: <%= rental.end_date %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
