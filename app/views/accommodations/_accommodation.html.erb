@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-4">
-              <%= image_tag "https://images.unsplash.com/photo-1635373670332-43ea883bb081?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=381&q=80", class: "avatar-bordered" %>
+              <%= image_tag "user_photo.jpeg", class: "avatar-bordered card-trip-user" %>
               <h2 class="card-trip-pricing">$ <%= @accommodation.price %></h2>
               <%# Colocar no image_tag imagem referente ao user owner do imóvel %>
               <%= link_to "Book this place", new_accommodation_rental_path(@accommodation), class: "button-gradient", style: "text-decoration: none; float: right;"%>
