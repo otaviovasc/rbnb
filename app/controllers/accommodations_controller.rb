@@ -1,6 +1,6 @@
 class AccommodationsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_accommodation, only: %i[show]
+  before_action :set_accommodation, only: %i[show edit update destroy]
 
   def index
     @accommodations = Accommodation.all
@@ -15,10 +15,26 @@ class AccommodationsController < ApplicationController
     @user = current_user
     @accommodation.user = @user
     if @accommodation.save
-      redirect_to @accommodation
+      redirect_to @accommodation, notice: "Accomodation was successfully updated."
     else
       render new_accommodation_path, status: :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @accommodation.update(accomodations_params)
+      redirect_to edit_accommodation(@accomodation), notice: "Accomodation was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @accommodation.destroy
+    redirect_to restaurants_url, notice: "Accommodation was successfully destroyed."
   end
 
   def show; end
