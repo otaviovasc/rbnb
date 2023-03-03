@@ -18,6 +18,16 @@ class RentalsController < ApplicationController
     end
   end
 
+  def bookings
+    @bookings = Rental.where(user_id: current_user)
+  end
+
+  def destroy
+    @booking = Rental.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_rentals_path, notice: "Your booking was successfully canceled."
+  end
+
   private
 
   def set_accommodation
