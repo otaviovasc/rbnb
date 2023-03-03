@@ -16,7 +16,7 @@
               <% if accommodation.photo.attached? %>
                 <%= cl_image_tag accommodation.photo.key, height: 300, crop: :fill %>
               <% else %>
-                <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
+                <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
               <% end %>
             <%# colocar no image_tag a imagem correta da accommodation %>
           <div class="card-product-infos">

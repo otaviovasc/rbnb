@@ -4,7 +4,7 @@
     <% if @accommodation.photo.attached? %>
       <%= cl_image_tag @accommodation.photo.key, height: 300, crop: :fill %>
     <% else %>
-      <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
+      <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
     <% end %>
     <div class="row">
       <div class="card-trip-infos">
@@ -14,7 +14,7 @@
 
         <div class="col-4">
           <div class="card-trip-pricing">
-            <%= image_tag "user_photo.jpeg", class: "avatar-bordered card-trip-user" %>
+            <%= image_tag "user_photo.jpg", class: "avatar-bordered card-trip-user" %>
             <h2>$ <%= @accommodation.price %> / day</h2>
             <%# Colocar no image_tag imagem referente ao user owner do imóvel %>
             <%= link_to "Book this place", new_accommodation_rental_path(@accommodation), class: "button-gradient", style: "text-decoration: none; float: right;"%>
