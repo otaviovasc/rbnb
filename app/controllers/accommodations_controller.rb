@@ -25,8 +25,9 @@ class AccommodationsController < ApplicationController
   end
 
   def update
-    if @accommodation.update(accomodations_params)
-      redirect_to edit_accommodation(@accomodation), notice: "Accomodation was successfully updated."
+    if @accommodation.update(accommodations_params)
+      redirect_to accommodation_path(@accommodation), notice: "Accomodation was successfully updated."
+
     else
       render :edit, status: :unprocessable_entity
     end
