@@ -4,7 +4,7 @@
 
   <% @bookings.each do |rental| %>
     <%= link_to accommodation_path(rental.accommodation), class:"text-decoration-none" do %>
-      <div class="card-trip">
+      <div class="card-trip m-4">
         <%# Change to users images/photos %>
         <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
 
@@ -14,9 +14,10 @@
             <p><%= rental.accommodation.address %></p>
           </div>
           <div class="card-trip-pricing">
-            <h3>$<%= rental.total_price %></h3>
+            <h2>Total price: $<%= rental.total_price %></h2>
             <p>Check in: <%= rental.start_date %></p>
             <p>Check out: <%= rental.end_date %></p>
+            <p><%= button_to "Cancel booking", rental_path(rental), class: "btn btn-warning", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></p>
           </div>
         </div>
       </div>
