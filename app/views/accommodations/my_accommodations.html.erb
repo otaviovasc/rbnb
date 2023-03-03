@@ -1,0 +1,17 @@
+<h1>My accommodations</h1>
+
+
+<% @accommodations.each do |accommodation| %>
+  <%= link_to accommodation_path(accommodation), class:"text-decoration-none" do %>
+
+    <div class="card-product">
+      <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
+      <%# colocar no image_tag a imagem correta da accommodation %>
+      <div class="card-product-infos">
+        <h2><%= accommodation.title %></h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </div>
+
+  <% end %>
+<% end %>

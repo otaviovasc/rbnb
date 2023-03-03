@@ -1,5 +1,5 @@
 class AccommodationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_accommodation, only: %i[show]
 
   def index
@@ -22,6 +22,10 @@ class AccommodationsController < ApplicationController
   end
 
   def show; end
+
+  def my_accommodations
+    @accommodations = Accommodation.where(user_id: current_user)
+  end
 
   private
 
