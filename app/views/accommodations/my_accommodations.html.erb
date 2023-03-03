@@ -1,26 +1,33 @@
 <h1 class = "mt-5 mb-5 text-center">My accommodations</h1>
+<div class = "text-center mb-5">
+  <%= link_to "Create new accommodation", new_accommodation_path, class: "btn btn-primary"  %>
+</div>
 
-
-<div class="container text-center">
+<div class="container">
   <div class="row">
     <div class="col">
     <%# colocar aqui calendário de reservas e total já arrecadado por accommodation %>
     </div>
+
     <div class="col">
       <% @accommodations.each do |accommodation| %>
-        <%= link_to accommodation_path(accommodation), class:"text-decoration-none" do %>
 
-          <div class="card-product">
-            <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
+        <div class="card-product m-3">
+              <% if @accommodation.photo.attached? %>
+                <%= cl_image_tag @accommodation.photo.key, height: 300, crop: :fill %>
+              <% else %>
+                <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
+              <% end %>
             <%# colocar no image_tag a imagem correta da accommodation %>
-            <div class="card-product-infos">
-              <h2><%= accommodation.title %></h2>
-              <p><%= accommodation.description %></p>
-              <p>Price per day: $<%= accommodation.price %></p>
-            </div>
+          <div class="card-product-infos">
+            <h2><%= accommodation.title %></h2>
+            <p><%= accommodation.description %></p>
+            <p>Price per day: $<%= accommodation.price %></p>
+            <%= link_to "see", accommodation_path(accommodation), class:"text-decoration-none" %>
+            <%= link_to "Edit", edit_accommodation_path(accommodation), class:"text-decoration-none"  %>
+            <%= link_to "Delete", accommodation_path(accommodation) , class:"text-decoration-none", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
           </div>
-
-        <% end %>
+        </div>
       <% end %>
     </div>
   </div>

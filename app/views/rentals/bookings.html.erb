@@ -5,8 +5,12 @@
   <% @bookings.each do |rental| %>
     <%= link_to accommodation_path(rental.accommodation), class:"text-decoration-none" do %>
       <div class="card-trip m-4">
-        <%# Change to users images/photos %>
-        <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
+        <%# Change to users images/accommodation %>
+        <% if rental.accommodation.photo.attached? %>
+          <%= cl_image_tag rental.accommodation.photo.key, height: 300, crop: :fill %>
+        <% else %>
+          <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpeg&auto=webp" %>
+        <% end %>
 
         <div class="card-trip-infos">
           <div>

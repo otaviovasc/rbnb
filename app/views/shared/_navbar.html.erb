@@ -34,8 +34,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "user_photo.jpeg", class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
-              <%= link_to "Log in", user_session_path, class: "dropdown-item" %>
+              <%= link_to "Sign in / Log in", new_user_session_path, class: "dropdown-item" %>
             </div>
           </li>
         <% end %>
