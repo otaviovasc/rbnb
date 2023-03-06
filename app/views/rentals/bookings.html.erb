@@ -1,29 +1,31 @@
-<h1>My bookings</h1>
+<div class="container">
+  <h1>My bookings</h1>
 
-<div class="card">
+  <div class="card">
 
-  <% @bookings.each do |rental| %>
-    <div class="card-trip m-4">
-      <%# Change to users images/photos %>
-      <%= link_to accommodation_path(rental.accommodation), class:"text-decoration-none" do %>
-        <% if rental.accommodation.photo.attached? %>
-          <%= cl_image_tag rental.accommodation.photo.key, height: 300, crop: :fill %>
-        <% else %>
-          <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
+    <% @bookings.each do |rental| %>
+      <div class="card-trip m-4">
+        <%# Change to users images/photos %>
+        <%= link_to accommodation_path(rental.accommodation), class:"text-decoration-none" do %>
+          <% if rental.accommodation.photo.attached? %>
+            <%= cl_image_tag rental.accommodation.photo.key, height: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
+          <% end %>
         <% end %>
-      <% end %>
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= rental.accommodation.title %></h2>
-          <p><%= rental.accommodation.address %></p>
-        </div>
-        <div class="card-trip-pricing">
-          <h2>Total price: $<%= rental.total_price %></h2>
-          <p>Check in: <%= rental.start_date %></p>
-          <p>Check out: <%= rental.end_date %></p>
-          <p><%= link_to "Cancel booking", rental_path(rental), class: "btn btn-warning", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></p>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= rental.accommodation.title %></h2>
+            <p><%= rental.accommodation.address %></p>
+          </div>
+          <div class="card-trip-pricing">
+            <h2>Total price: $<%= rental.total_price %></h2>
+            <p>Check in: <%= rental.start_date %></p>
+            <p>Check out: <%= rental.end_date %></p>
+            <p><%= link_to "Cancel booking", rental_path(rental), class: "btn btn-warning", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></p>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
