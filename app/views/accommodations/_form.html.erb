@@ -4,7 +4,7 @@
     <%= f.input :address %>
     <%= f.input :price %>
     <%# Change category to dropdown MENU (fixed list with categories) %>
-    <%= f.input :category %>
+    <%= f.input :category, collection: Accommodation::PLANETS %>
     <%= f.input :description %>
     <%= f.input :photo, as: :file %>
   </div>

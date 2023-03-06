@@ -4,6 +4,7 @@
   <div class="card">
 
     <% @bookings.each do |rental| %>
+
       <div class="card-trip m-4">
         <%# Change to users images/photos %>
         <%= link_to accommodation_path(rental.accommodation), class:"text-decoration-none" do %>
@@ -13,6 +14,7 @@
             <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
           <% end %>
         <% end %>
+
         <div class="card-trip-infos">
           <div>
             <h2><%= rental.accommodation.title %></h2>
@@ -26,6 +28,7 @@
           </div>
         </div>
       </div>
+      
     <% end %>
   </div>
 </div>

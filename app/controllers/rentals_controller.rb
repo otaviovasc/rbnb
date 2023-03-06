@@ -17,7 +17,7 @@ class RentalsController < ApplicationController
         render :new, status: :unprocessable_entity
       end
     else
-      render :new, status: :unprocessable_entity, notice: "This date is not available."
+      redirect_to new_accommodation_rental_path(@accommodation), notice: "This date is not available."
     end
   end
 
