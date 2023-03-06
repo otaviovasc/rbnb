@@ -72,48 +72,23 @@
   border-radius: 10px;
 }
 
+.btn-login {
+  background-color: rgba(10,27,68,1);
+  color: #ffffff;
+}
 
+.search-form-control .form-control {
+  height: 3.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+}
 
+.btn-login {
+  background-color: rgba(10,27,68,1);
+  color: #ffffff;
+}
 
-// .box:before {
-//   content: "";
-//   z-index: -1;
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   background: linear-gradient(-45deg, #ff3d00 0%, #0400ff 100% );
-//   transform: translate3d(0px, 20px, 0) scale(0.95);
-//   filter: blur(20px);
-//   opacity: var(0.7);
-//   transition: opacity 0.3s;
-//   border-radius: inherit;
-// }
-
-// /*
-// * Prevents issues when the parent creates a
-// * stacking context. (For example, using the transform
-// * property )
-// */
-// .box::after {
-//   content: "";
-//   z-index: -1;
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   background: inherit;
-//   border-radius: inherit;
-// }
-
-// button, input[type="submit"], input[type="reset"] {
-// 	background: none;
-// 	color: inherit;
-// 	border: none;
-// 	padding: 0;
-// 	font: inherit;
-// 	cursor: pointer;
-// 	outline: inherit;
-// }
+.btn-login:hover {
+  background-color: rgba(66,101,165,1);
+  color: #ffffff;
+}

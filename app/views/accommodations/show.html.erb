@@ -1,7 +1,9 @@
-<div class="container" id="top-show-container">
-  <%= link_to accommodations_path do %>
-    <i class="fa-sharp fa-solid fa-circle-arrow-left"></i>
-  <% end %>
-  <h1><%= @accommodation.title %> </h1>
-</div>
+<div class="container">
+  <div id="top-show-container">
+    <%= link_to accommodations_path do %>
+      <i class="fa-sharp fa-solid fa-circle-arrow-left"></i>
+    <% end %>
+    <h1><%= @accommodation.title %> </h1>
+  </div>
   <%= render "accommodation", accommodation: @accommodation, rental: @rental %>
+</div>

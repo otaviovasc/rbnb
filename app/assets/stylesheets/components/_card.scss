@@ -86,6 +86,7 @@
   top: -20px;
   width: 40px;
 }
+
 .card-product {
   overflow: hidden;
   height: 200px;
@@ -94,6 +95,7 @@
   color:#000000;
   display: flex;
   align-items: center;
+  border-radius: 10px;
 
   img {
     height: 100%;
@@ -130,6 +132,8 @@
 .card-trip-pricing {
   padding: 12px 16px 16px 16px;
   text-align: center;
+  color: black;
+
 }
 .left-bordered-card {
   border-left: 1px solid black;
