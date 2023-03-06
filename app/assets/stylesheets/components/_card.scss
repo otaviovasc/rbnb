@@ -95,7 +95,8 @@
   color:#000000;
   display: flex;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 8px;
+  position: relative;
 
   img {
     height: 100%;
@@ -129,4 +130,9 @@
     padding: 16px;
   }
 
+  .dropdown {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+  }
 }

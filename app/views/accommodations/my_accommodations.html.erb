@@ -1,13 +1,18 @@
 <div class="container">
   <h1 class = "mt-5 mb-5 text-center">My accommodations</h1>
   <div class = "text-center mb-5">
-    <%= link_to "Create new accommodation", new_accommodation_path, class: "btn btn-primary"  %>
+    <%= link_to "Create new accommodation", new_accommodation_path, class: "btn btn-gradient"  %>
   </div>
 
   <div class="container">
     <div class="row">
       <div class="col">
       <%# colocar aqui calendário de reservas e total já arrecadado por accommodation %>
+
+
+
+
+
       </div>
 
       <div class="col">
@@ -24,9 +29,23 @@
               <h2><%= accommodation.title %></h2>
               <p><%= accommodation.description %></p>
               <p>Price per day: $<%= accommodation.price %></p>
-              <%= link_to "see", accommodation_path(accommodation), class:"text-decoration-none" %>
-              <%= link_to "Edit", edit_accommodation_path(accommodation), class:"text-decoration-none"  %>
-              <%= link_to "Delete", accommodation_path(accommodation) , class:"text-decoration-none", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+            </div>
+
+            <div class="dropdown">
+              <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to "See accommodation", accommodation_path(accommodation), class: "dropdown-item" %>
+                </li>
+                <li>
+                  <%= link_to "Edit", edit_accommodation_path(accommodation), class: "dropdown-item"  %>
+                </li>
+                <li>
+                  <%= link_to "Delete", accommodation_path(accommodation), class: "dropdown-item" , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+                </li>
+              </ul>
             </div>
           </div>
         <% end %>

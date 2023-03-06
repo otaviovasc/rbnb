@@ -91,9 +91,27 @@
 .btn-login {
   background-color: rgba(10,27,68,1);
   color: #ffffff;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: rgba(66,101,165,1);
+    color: #ffffff;
+  }
 }
 
-.btn-login:hover {
-  background-color: rgba(66,101,165,1);
+
+.btn-gradient {
+
+  background: rgb(10,27,68);
+  background: linear-gradient(45deg, rgba(10,27,68,1) 16%, rgba(66,101,165,1) 64%, rgba(170,90,198,1) 95%);
   color: #ffffff;
+  border-radius: 4px;
+
+  &:hover {
+    background: rgb(10,27,68);
+    background: linear-gradient(-45deg, rgba(10,27,68,1) 16%, rgba(66,101,165,1) 64%, rgba(170,90,198,1) 95%);
+    color: #ffffff;
+    transition: 0.4s;
+  }
 }
+
