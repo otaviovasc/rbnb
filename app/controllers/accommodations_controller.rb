@@ -40,7 +40,7 @@ class AccommodationsController < ApplicationController
   def destroy
     authorize @accommodation
     @accommodation.destroy
-    redirect_to accommodations_url, notice: "Accommodation was successfully destroyed."
+    redirect_to accommodations_url, notice: "Accommodation was successfully deleted."
   end
 
   def show
@@ -48,8 +48,7 @@ class AccommodationsController < ApplicationController
   end
 
   def my_accommodations
-    authorize @accommodations
-    @accommodations = Accommodation.where(user_id: current_user)
+    @accommodations = policy_scope(Accommodation).where(user_id: current_user)
   end
 
   private

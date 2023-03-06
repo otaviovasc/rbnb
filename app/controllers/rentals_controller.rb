@@ -23,12 +23,12 @@ class RentalsController < ApplicationController
   end
 
   def bookings
-    @bookings = Rental.where(user_id: current_user)
+    @bookings = policy_scope(Rental).where(user_id: current_user)
   end
 
   def destroy
-    authorize @rental
     @booking = Rental.find(params[:id])
+    authorize @booking
     @booking.destroy
     redirect_to bookings_rentals_path, notice: "Your booking was canceled successfully."
   end

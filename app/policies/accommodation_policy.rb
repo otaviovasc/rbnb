@@ -21,8 +21,4 @@ class AccommodationPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
-
-  def my_accommodations?
-    record.user == user
-  end
 end
