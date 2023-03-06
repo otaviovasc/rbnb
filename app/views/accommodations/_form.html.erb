@@ -7,7 +7,7 @@
       <%# Change category to dropdown MENU (fixed list with categories) %>
       <%= f.input :category, placeholder: "Select a category" %>
       <%= f.input :description, placeholder: "Write a short description" %>
-      <%= f.input :photo, as: :file %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
     <%# <div class=""> %>
       <div class="form-actions">

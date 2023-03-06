@@ -1,27 +1,56 @@
 <div class="card-trip", >
   <%# Colocar no image_tag imagem referente à accommodation correta %>
-  <% if @accommodation.photo.attached? %>
-    <%= cl_image_tag @accommodation.photo.key, height: 300, crop: :fill %>
+  <% if accommodation.photos.attached? %>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% accommodation.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= "active" if index.zero? %>">
+            <%= cl_image_tag photo.key, height: 300, width: 1296 %>
+          </div>
+        <% end %>
+      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
   <% else %>
     <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
   <% end %>
-  <div class="row">
-    <div class="card-trip-infos">
-      <div class="col-8">
-        <p style="font-size:16px;"> <%= @accommodation.description %> </p>
-      </div>
 
-      <div class="col-4">
-        <div class="card-trip-pricing">
-          <%= image_tag "user_photo.jpg", class: "avatar-bordered card-trip-user" %>
-          <h2>$ <%= @accommodation.price %> / day</h2>
-          <%# Colocar no image_tag imagem referente ao user owner do imóvel %>
-          <%= link_to "Book this place", new_accommodation_rental_path(@accommodation), class: "button-gradient", style: "text-decoration: none; float: right;"%>
+  <div class="card-trip-description">
+    <div style="flex: 8;">
+      <p> <%= accommodation.description %> </p>
+    </div>
+
+    <div class="left-bordered-card" style="flex: 4;">
+      <%= image_tag "user_photo.jpg", class: "card-trip-user avatar-bordered" %>
+      <h2 class="card-trip-pricing"> $ <%= accommodation.price %> / day</h2>
+      <%# Colocar no image_tag imagem referente ao user owner do imóvel %>
+      <div class="form-inputs-show" data-controller="rental-price" data-rental-price-accprice-value="<%= @accommodation.price %>">
+      <%= simple_form_for([accommodation, rental]) do |f| %>
+      <div>
+      <p data-rental-price-target="price" style="text-align center">Select dates</p>
+      <p data-rental-price-target="calculation"></p>
+        <%= f.input :start_date, start_day: Date.today.day,
+                                  html5: true,
+                                  input_html: { data: {action: "change->rental-price#calculateTotalPrice", rental_price_target: "start_date"}}, style: "text-align: right;"%>
+        <%= f.input :end_date, start_day: Date.today.day,
+                                  html5: true,
+                                  input_html: { data: {action: "change->rental-price#calculateTotalPrice", rental_price_target: "end_date"} }%>
+      </div>
+      <div class="form-actions">
+        <div id="btn-gradient">
+          <%= f.button :submit %>
         </div>
       </div>
+    <% end %>
+
     </div>
   </div>
 </div>
-
-<!-- HTML !-->
-<%# <button class="button-gradient" role="button">Button 85</button> %>
