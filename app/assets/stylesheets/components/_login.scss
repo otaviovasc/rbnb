@@ -1,23 +1,8 @@
-.login-form {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 0;
-
-  form {
-   width: 60%;
+  .background-gradient {
+    /* background-image: url("https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2426&q=80"); */
+    background: rgb(10,27,68);
+    background: linear-gradient(45deg, rgba(10,27,68,1) 33%, rgba(43,49,121,1) 44%, rgba(66,101,165,1) 53%, rgba(170,90,198,1) 61%, rgba(43,49,121,1) 74%, rgba(10,27,68,1) 80%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
   }
-
-  .form-actions {
-    width: 30%;
-    margin-bottom: 8px;
-  }
-}
-
-.login-title {
-  margin: 20px;
-  color: #6b705c;
-}

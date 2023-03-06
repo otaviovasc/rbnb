@@ -1,26 +1,26 @@
-<h1 id="index-title">Find the ideal accommodation for you</h1>
+<div class="container">
+  <h1 id="index-title">Find the ideal accommodation for you</h1>
 
-<div class="cards">
+  <div class="cards">
+    <% @accommodations.each do |accommodation| %>
+      <%= link_to accommodation_path(accommodation), class:"text-decoration-none" do %>
+        <div class="card-trip">
 
-  <% @accommodations.each do |accommodation| %>
-    <%= link_to accommodation_path(accommodation), class:"text-decoration-none" do %>
-      <div class="card-trip">
+          <% if accommodation.photo.attached? %>
+            <%= cl_image_tag accommodation.photo.key, height: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
+          <% end %>
 
-        <% if accommodation.photo.attached? %>
-          <%= cl_image_tag accommodation.photo.key, height: 300, crop: :fill %>
-        <% else %>
-          <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
-        <% end %>
-
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= accommodation.title %></h2>
-            <p><%= accommodation.address %></p>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= accommodation.title %></h2>
+              <p><%= accommodation.address %></p>
+            </div>
+            <h2 class="card-trip-pricing">$ <%= accommodation.price %></h2>
           </div>
-          <h2 class="card-trip-pricing">$ <%= accommodation.price %></h2>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-
+  </div>
 </div>
