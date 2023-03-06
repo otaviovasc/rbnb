@@ -26,3 +26,31 @@
   }
 
 }
+
+.navbar-lewagon-login {
+  justify-content: space-between;
+  background-position: center;
+  background: transparent;
+
+  // a {
+  //   color: #ffffff;
+  // }
+
+  // a:hover {
+  //   color: #b2b2b2;
+  // }
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-brand img {
+    width: 50px;
+    border-radius: 10%;
+  }
+
+  .navbar-text {
+    color: #ffffff;
+  }
+
+}
