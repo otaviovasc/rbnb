@@ -1,5 +1,9 @@
-<div class="container mt-3">
-  <%= link_to "Back", accommodations_path, class: "btn btn-primary mb-4" %>
-  <h1 style="padding: 10px 0 10px 3px;"><%= @accommodation.title  %> </h1>
-  <%= render @accommodation %>
+<div class="container">
+  <div id="top-show-container">
+    <%= link_to accommodations_path do %>
+      <i class="fa-sharp fa-solid fa-circle-arrow-left"></i>
+    <% end %>
+    <h1><%= @accommodation.title %> </h1>
+  </div>
+  <%= render "accommodation", accommodation: @accommodation, rental: @rental %>
 </div>

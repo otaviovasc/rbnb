@@ -40,10 +40,11 @@ class AccommodationsController < ApplicationController
   def destroy
     authorize @accommodation
     @accommodation.destroy
-    redirect_to accommodations_url, notice: "Accommodation was successfully deleted."
+    redirect_to my_accommodations_accommodations_url, notice: "Accommodation was successfully destroyed."
   end
 
   def show
+    @rental = Rental.new
     authorize @accommodation
   end
 
@@ -54,7 +55,7 @@ class AccommodationsController < ApplicationController
   private
 
   def accommodations_params
-    params.require(:accommodation).permit(:title, :address, :price, :category, :description, :photo)
+    params.require(:accommodation).permit(:title, :address, :price, :category, :description, photos: [])
   end
 
   def set_accommodation

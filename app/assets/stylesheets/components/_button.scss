@@ -1,5 +1,5 @@
 /* CSS */
-.button-gradient {
+#btn-gradient {
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -12,37 +12,41 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+
+  .btn {
+    color: #fff;
+    text-align: center;
+    width: 100%;
+  }
 }
 
-.button-gradient:before {
+#btn-gradient:before {
   content: "";
   background: linear-gradient(
     45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
+  #2B3179,
+  #4265A5,
+  #74BADE,
+  #AA5AC6,
+  #74BADE,
+  #4265A5,
+  #2B3179,
   );
   position: absolute;
   top: -2px;
   left: -2px;
   background-size: 400%;
   z-index: -1;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  animation: glowing-button-85 20s linear infinite;
+  animation: glowing-btn-gradient 20s linear infinite;
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
 
-@keyframes glowing-button-85 {
+@keyframes glowing-btn-gradient {
   0% {
     background-position: 0 0;
   }
@@ -54,7 +58,7 @@
   }
 }
 
-.button-gradient:after {
+#btn-gradient:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -65,27 +69,16 @@
   top: 0;
   border-radius: 10px;
 }
-.search-form-control {
-  position: relative;
-}
 
-.search-form-control .btn {
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
+.btn-login {
+  background-color: rgba(10,27,68,1);
+  color: #ffffff;
 }
 
 .search-form-control .form-control {
   height: 3.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
-}
-
-.search-form-control .form-control:focus {
-  border: 1px solid #1EDD88;
-  outline: none !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .btn-login {
@@ -114,4 +107,3 @@
     transition: 0.4s;
   }
 }
-
