@@ -7,16 +7,17 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(rental_params)
-    @rental.accommodation = @accommodation
-    @rental.user = current_user
-    if !@rental.end_date.nil? && !@rental.start_date.nil?
-      @rental.total_price = @accommodation.price * (@rental.end_date - @rental.start_date)
-    end
-    if @rental.save
-      # REDIRECT TO My_Rentals when we have it
-      redirect_to bookings_rentals_path
+    if available?(@accommodation, @rental)
+      @rental.accommodation = @accommodation
+      @rental.user = current_user
+      @rental.total_price = @accommodation.price * (@rental.end_date - @rental.start_date) if !@rental.end_date.nil? && !@rental.start_date.nil?
+      if @rental.save
+        redirect_to bookings_rentals_path
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: "This date is not available."
     end
   end
 
@@ -38,5 +39,17 @@ class RentalsController < ApplicationController
 
   def rental_params
     params.require(:rental).permit(:start_date, :end_date)
+  end
+
+  def available?(accommodation, rental)
+    new_rental_range = rental.start_date..rental.end_date
+    acc_rentals = Rental.where(accommodation_id: accommodation)
+    acc_rentals.each do |acc_rental|
+      rental_range = acc_rental[:start_date]..acc_rental[:end_date]
+      if new_rental_range.overlaps?(rental_range)
+        return false
+      end
+    end
+    return true
   end
 end
