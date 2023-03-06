@@ -6,8 +6,8 @@
       <%= link_to accommodation_path(accommodation), class:"text-decoration-none" do %>
         <div class="card-trip">
 
-          <% if accommodation.photo.attached? %>
-            <%= cl_image_tag accommodation.photo.key, height: 300, crop: :fill %>
+          <% if accommodation.photos.attached? %>
+            <%= cl_image_tag accommodation.photos.first.key, height: 300, crop: :fill %>
           <% else %>
             <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
           <% end %>

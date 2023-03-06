@@ -1,15 +1,19 @@
-<%= simple_form_for @accommodation do |f| %>
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :address %>
-    <%= f.input :price %>
-    <%# Change category to dropdown MENU (fixed list with categories) %>
-    <%= f.input :category, collection: Accommodation::PLANETS %>
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
-<% end %>
-<%= link_to "Back to accommodations", accommodations_path %>
+<div class="accommodation-form">
+  <%= simple_form_for @accommodation do |f| %>
+    <div class="form-inputs">
+      <%= f.input :title, placeholder: "Space house"%>
+      <%= f.input :address, placeholder: "Adress Street Nr" %>
+      <%= f.input :price, placeholder: "$ 0,00" %>
+      <%# Change category to dropdown MENU (fixed list with categories) %>
+      <%= f.input :category, collection: Accommodation::PLANETS %>
+      <%= f.input :description, placeholder: "Write a short description" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
+    <%# <div class=""> %>
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-primary" %>
+      </div>
+    <%# </div> %>
+  <% end %>
+  <%= link_to "Back to accommodations", accommodations_path %>
+</div>

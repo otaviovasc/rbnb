@@ -7,18 +7,17 @@
   <div class="container">
     <div class="row">
       <div class="col">
-      <%# colocar aqui calendário de reservas e total já arrecadado por accommodation %>
       </div>
 
       <div class="col">
         <% @accommodations.each do |accommodation| %>
 
           <div class="card-product m-3">
-                <% if accommodation.photo.attached? %>
-                  <%= cl_image_tag accommodation.photo.key, height: 300, crop: :fill %>
-                <% else %>
-                  <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
-                <% end %>
+            <% if accommodation.photos.attached? %>
+              <%= cl_image_tag accommodation.photos.first.key, height: 300, crop: :fill %>
+            <% else %>
+              <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
+            <% end %>
               <%# colocar no image_tag a imagem correta da accommodation %>
             <div class="card-product-infos">
               <h2><%= accommodation.title %></h2>
@@ -31,6 +30,5 @@
           </div>
         <% end %>
       </div>
-    </div>
   </div>
 </div>

@@ -3,6 +3,7 @@ class RentalsController < ApplicationController
 
   def new
     @rental = Rental.new
+    authorize @rental
   end
 
   def create
@@ -11,6 +12,7 @@ class RentalsController < ApplicationController
       @rental.accommodation = @accommodation
       @rental.user = current_user
       @rental.total_price = @accommodation.price * (@rental.end_date - @rental.start_date) if !@rental.end_date.nil? && !@rental.start_date.nil?
+      authorize @rental
       if @rental.save
         redirect_to bookings_rentals_path
       else
@@ -22,11 +24,12 @@ class RentalsController < ApplicationController
   end
 
   def bookings
-    @bookings = Rental.where(user_id: current_user)
+    @bookings = policy_scope(Rental).where(user_id: current_user)
   end
 
   def destroy
     @booking = Rental.find(params[:id])
+    authorize @booking
     @booking.destroy
     redirect_to bookings_rentals_path, notice: "Your booking was canceled successfully."
   end
