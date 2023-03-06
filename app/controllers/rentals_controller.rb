@@ -16,7 +16,7 @@ class RentalsController < ApplicationController
       # REDIRECT TO My_Rentals when we have it
       redirect_to bookings_rentals_path
     else
-      render :new, status: :unprocessable_entity
+      redirect_to @accommodation, status: :unprocessable_entity
     end
   end
 

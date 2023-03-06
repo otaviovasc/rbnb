@@ -4,4 +4,4 @@
   <% end %>
   <h1><%= @accommodation.title %> </h1>
 </div>
-  <%= render @accommodation %>
+  <%= render "accommodation", accommodation: @accommodation, rental: @rental %>

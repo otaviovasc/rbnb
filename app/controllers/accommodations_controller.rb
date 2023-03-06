@@ -35,10 +35,12 @@ class AccommodationsController < ApplicationController
 
   def destroy
     @accommodation.destroy
-    redirect_to accommodations_url, notice: "Accommodation was successfully destroyed."
+    redirect_to my_accommodations_accommodations_url, notice: "Accommodation was successfully destroyed."
   end
 
-  def show; end
+  def show
+    @rental = Rental.new
+  end
 
   def my_accommodations
     @accommodations = Accommodation.where(user_id: current_user)
@@ -47,7 +49,7 @@ class AccommodationsController < ApplicationController
   private
 
   def accommodations_params
-    params.require(:accommodation).permit(:title, :address, :price, :category, :description, :photo)
+    params.require(:accommodation).permit(:title, :address, :price, :category, :description, photos: [])
   end
 
   def set_accommodation
