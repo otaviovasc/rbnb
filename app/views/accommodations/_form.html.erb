@@ -5,7 +5,7 @@
       <%= f.input :address, placeholder: "Adress Street Nr" %>
       <%= f.input :price, placeholder: "$ 0,00" %>
       <%# Change category to dropdown MENU (fixed list with categories) %>
-      <%= f.input :category, placeholder: "Select a category" %>
+      <%= f.input :category, collection: Accommodation::PLANETS %>
       <%= f.input :description, placeholder: "Write a short description" %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>

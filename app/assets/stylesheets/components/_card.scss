@@ -65,8 +65,13 @@
     align-items: center;
     position: relative;
   }
-
 }
+
+  .card-trip.home {
+    height: 320px;
+}
+
+
 
 .card-trip > img {
   height: 200px;
