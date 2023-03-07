@@ -92,9 +92,7 @@
   }
 }
 
-
-.btn-gradient {
-  margin: 10px;
+.btn-inner-gradient {
   padding: 12px;
   text-align: center;
   transition: 0.5s;
@@ -108,7 +106,7 @@
   }
 }
 
-.btn-1 {
+.btn-inner-gradient-transition {
   --c1: #0a1b44;
   --c2: #4265a5;
   --c3: #aa5ac6;

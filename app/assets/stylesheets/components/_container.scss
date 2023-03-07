@@ -4,3 +4,13 @@
   height: 80vh;
   justify-content: center;
 }
+
+#top-show-container {
+  display: flex;
+  align-items: center;
+  margin: 24px 0 20px 0;
+
+  h1 {
+    margin-left: 16px;
+  }
+}
