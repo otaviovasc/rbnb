@@ -3,7 +3,11 @@ class AccommodationsController < ApplicationController
   before_action :set_accommodation, only: %i[show edit update destroy]
 
   def index
-    @accommodations = policy_scope(Accommodation)
+    if params[:query].present?
+      @accommodations = policy_scope(Accommodation).search_by_title_and_category(params[:query])
+    else
+      @accommodations = policy_scope(Accommodation)
+    end
   end
 
   def new
