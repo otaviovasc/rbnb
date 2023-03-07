@@ -1,4 +1,4 @@
-<div class="card-trip", >
+<div class="card-trip">
   <%# Colocar no image_tag imagem referente à accommodation correta %>
   <% if accommodation.photos.attached? %>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -38,26 +38,26 @@
       </h2>
       <%# Colocar no image_tag imagem referente ao user owner do imóvel %>
       <div class="form-inputs-show" data-controller="rental-price" data-rental-price-accprice-value="<%= @accommodation.price %>">
-      <%= simple_form_for([accommodation, rental]) do |f| %>
-      <div>
-        <%= f.input :start_date, start_day: Date.today.day,
-                                  html5: true,
-                                  input_html: { data: {action: "change->rental-price#calculateTotalPrice", rental_price_target: "start_date"}}, style: "text-align: right;"%>
-        <%= f.input :end_date, start_day: Date.today.day,
-                                  html5: true,
-                                  input_html: { data: {action: "change->rental-price#calculateTotalPrice", rental_price_target: "end_date"} }%>
-      <div class="show-total-price">
-        <p data-rental-price-target="calculation"></p>
-        <p data-rental-price-target="price"></p>
+        <%= simple_form_for([accommodation, rental]) do |f| %>
+          <div>
+            <%= f.input :start_date, start_day: Date.today.day,
+                                      html5: true,
+                                      input_html: { data: {action: "change->rental-price#calculateTotalPrice", rental_price_target: "start_date"}}, style: "text-align: right;"%>
+            <%= f.input :end_date, start_day: Date.today.day,
+                                      html5: true,
+                                      input_html: { data: {action: "change->rental-price#calculateTotalPrice", rental_price_target: "end_date"} }%>
+            <div class="show-total-price">
+              <p data-rental-price-target="calculation"></p>
+              <p data-rental-price-target="price"></p>
+            </div>
+          </div>
+          <div class="form-actions">
+            <div id="btn-gradient">
+              <%= f.button :submit %>
+            </div>
+          </div>
+        <% end %>
       </div>
-      </div>
-      <div class="form-actions">
-        <div id="btn-gradient">
-          <%= f.button :submit %>
-        </div>
-      </div>
-    <% end %>
-
     </div>
   </div>
 </div>

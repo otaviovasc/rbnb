@@ -93,8 +93,7 @@
 }
 
 .btn-inner-gradient {
-  padding: 12px;
-  text-align: center;
+   text-align: center;
   transition: 0.5s;
   background: linear-gradient(45deg, var(--c1, #0a1b44) 16%, var(--c2, #4265a5) 64%, var(--c3, #aa5ac6) 95%) var(--x, 0)/ 200%;
   color: #ffffff;
@@ -104,6 +103,7 @@
     --x: 100%;
     color: #ffffff;
   }
+
 }
 
 .btn-inner-gradient-transition {
