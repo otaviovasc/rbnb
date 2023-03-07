@@ -1,48 +1,40 @@
 <div class="container">
   <h1 class = "mt-5 mb-5 text-center">My Bookings</h1>
-
+<div class="grid-2-columns ">
     <% @bookings.each do |rental| %>
-
-      <div class="card-trip m-4">
-        <%# Change to users images/photos %>
-        <%= link_to accommodation_path(rental.accommodation), class:"text-decoration-none" do %>
-          <% if rental.accommodation.photos.attached? %>
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <% rental.accommodation.photos.each_with_index do |photo, index| %>
-                  <div class="carousel-item <%= "active" if index.zero? %>">
-                    <%= cl_image_tag photo.key, height: 300, width: 1296 %>
-                  </div>
-                <% end %>
-              </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-          <% else %>
-            <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
-          <% end %>
+      <div class="card-product m-3">
+        <% if rental.accommodation.photos.attached? %>
+          <%= cl_image_tag rental.photos.first.key, height: 300, crop: :fill %>
+        <% else %>
+          <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
         <% end %>
-
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= rental.accommodation.title %></h2>
-            <p><%= rental.accommodation.address %></p>
-          </div>
-          <div class="card-trip-pricing">
-            <h2>Total price: <%= number_to_currency(rental.total_price, unit: "$") %></h2>
-            <p>Check in: <%= rental.start_date %></p>
-            <p>Check out: <%= rental.end_date %></p>
-            <p><%= link_to "Cancel booking", rental_path(rental), class: "btn btn-warning", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></p>
-          </div>
+        <div class="card-product-infos">
+          <h2><strong><%= rental.accommodation.title %></strong></h2>
+          <p><strong>Planet: </strong><%= rental.accommodation.planet %></p>
+          <p><strong>Total price: $ </strong><%= rental.total_price %></p>
+        </div>
+        <div class="dropdown">
+          <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to "See accommodation", accommodation_path(rental.accommodation), class: "dropdown-item" %>
+            </li>
+            <li>
+              <%= link_to "Cancel Booking", rental_path(rental), class: "dropdown-item" , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+            </li>
+          </ul>
         </div>
       </div>
-
     <% end %>
+  </div>
 </div>
+
+<style>
+  .grid-2-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+  }
+</style>
