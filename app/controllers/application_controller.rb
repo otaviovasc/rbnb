@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
   # Pundit: allow-list approach
-  after_action :verify_authorized, except: %i[index my_accommodations bookings], unless: :skip_pundit?
+  after_action :verify_authorized, except: %i[index my_accommodations bookings show], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: %i[index], unless: :skip_pundit?
 
   # Uncomment when you *really understand* Pundit!

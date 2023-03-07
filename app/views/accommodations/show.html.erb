@@ -5,5 +5,22 @@
     <% end %>
     <h1><%= @accommodation.title %> </h1>
   </div>
+
   <%= render "accommodation", accommodation: @accommodation, rental: @rental %>
+
+    <% if current_user == @accommodation.user %>
+      <div class = "cards mt-3 ">
+        <% @rentals.each do |rental| %>
+            <div class="card-product">
+              <h2 class="m-2">Guest: <%= rental.user.name.capitalize %></h2>
+              <div class="card-product-infos border-start">
+                  <p>Check in: <%= rental.start_date %></p>
+                  <p>Check out: <%= rental.end_date %></p>
+                  <p>Total price: $<%= rental.total_price %></p>
+                <%= link_to "Cancel booking", rental_path(rental), class: "btn btn-outline-danger", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    <% end %>
 </div>

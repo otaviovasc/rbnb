@@ -46,6 +46,7 @@ class AccommodationsController < ApplicationController
   def show
     @rental = Rental.new
     authorize @accommodation
+    @rentals = policy_scope(Rental).where(accommodation_id: @accommodation)
   end
 
   def my_accommodations
