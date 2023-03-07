@@ -168,3 +168,12 @@
     top: 12px;
   }
 }
+#top-show-card {
+  display: flex;
+  align-items: center;
+  margin: 24px 0 20px 0;
+
+  h1 {
+    margin-left: 16px;
+  }
+}
