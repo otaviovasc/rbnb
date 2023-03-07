@@ -4,7 +4,8 @@
       <%= f.input :title, placeholder: "Space house"%>
       <%= f.input :address, placeholder: "Adress Street Nr" %>
       <%= f.input :price, placeholder: "$ 0,00" %>
-      <%= f.input :category, collection: Accommodation::PLANETS %>
+      <%= f.input :planet, collection: Accommodation::PLANETS %>
+      <%= f.input :category, collection: Accommodation::CATEGORIES %>
       <%= f.input :description, placeholder: "Write a short description" %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>

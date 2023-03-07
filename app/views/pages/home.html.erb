@@ -2,13 +2,14 @@
   <h1 id="home-title">Welcome to <strong>Space</strong>bnb</h1>
   <p id="home-paragraph">Let's start <strong>our journey</strong>!</p>
 
-  <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        <%= link_to "| 🔍 Search", accommodations_path, class: "btn btn-flat" %></i>
-      </div>
-    <% end %>
+  <%= form_with url: accommodations_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a place"
+    %>
+    <%= submit_tag "Search", class: "btn-inner-gradient btn-inner-gradient-transition", style: "border-radius: 0 8px 8px 0" %>
+  <% end %>
 
   <div class="cards justify-content">
 
