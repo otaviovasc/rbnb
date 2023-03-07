@@ -8,18 +8,18 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(rental_params)
+    authorize @rental
     if available?(@accommodation, @rental)
       @rental.accommodation = @accommodation
       @rental.user = current_user
       @rental.total_price = @accommodation.price * (@rental.end_date - @rental.start_date) if !@rental.end_date.nil? && !@rental.start_date.nil?
-      authorize @rental
       if @rental.save
         redirect_to bookings_rentals_path
       else
-        render :new, status: :unprocessable_entity
+        redirect_to accommodation_path(@accommodation), notice: "Date can't be blank"
       end
     else
-      redirect_to new_accommodation_rental_path(@accommodation), notice: "This date is not available."
+      redirect_to accommodation_path(@accommodation), notice: "This date is not available."
     end
   end
 

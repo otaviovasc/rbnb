@@ -4,7 +4,7 @@
     <% @bookings.each do |rental| %>
       <div class="card-product m-3">
         <% if rental.accommodation.photos.attached? %>
-          <%= cl_image_tag rental.photos.first.key, height: 300, crop: :fill %>
+          <%= cl_image_tag rental.accommodation.photos.first.key, height: 300, crop: :fill %>
         <% else %>
           <%= image_tag "https://i.insider.com/56cdb126dd0895dd048b4793?width=600&format=jpg&auto=webp" %>
         <% end %>
