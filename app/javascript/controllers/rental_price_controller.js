@@ -19,8 +19,8 @@ export default class extends Controller {
     console.log(diffDays);
 
     if (Number.isInteger(diffDays) && diffDays>0) {
-      this.calculationTarget.innerHTML = `Days: ${diffDays} * $${this.accpriceValue}`
-      this.priceTarget.innerHTML = `Total Price: $${diffDays * this.accpriceValue}`
+      this.calculationTarget.innerHTML = `Days: ${diffDays} * $${this.accpriceValue}0`
+      this.priceTarget.innerHTML = `Total Price: $${(diffDays * this.accpriceValue).toFixed(2)}`
     }
   }
 }

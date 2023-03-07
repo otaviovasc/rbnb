@@ -1,3 +1,14 @@
 .form-inputs-show {
   width: 80%;
 }
+.show-total-price {
+  margin: 8px auto 12px auto;
+  text-align: left;
+  border-top: 1px dotted black;
+  padding-top: 8px;
+  font-weight: bold;
+
+  p {
+    font-size: 20px;
+  }
+ }
