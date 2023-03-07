@@ -38,7 +38,7 @@
             <p><%= rental.accommodation.address %></p>
           </div>
           <div class="card-trip-pricing">
-            <h2>Total price: $<%= rental.total_price %></h2>
+            <h2>Total price: <%= number_to_currency(rental.total_price, unit: "$") %></h2>
             <p>Check in: <%= rental.start_date %></p>
             <p>Check out: <%= rental.end_date %></p>
             <p><%= link_to "Cancel booking", rental_path(rental), class: "btn btn-warning", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></p>
