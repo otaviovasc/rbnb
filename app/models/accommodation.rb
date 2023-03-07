@@ -1,5 +1,5 @@
 class Accommodation < ApplicationRecord
-  PLANETS = %w[Mecury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto]
+  PLANETS = %w[Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto]
   CATEGORIES = %w[Flat Spaceship House Bunker Cave]
 
   belongs_to :user
