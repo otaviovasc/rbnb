@@ -89,6 +89,9 @@
   text-align: center;
   color: black;
   font-family: 'Nunito', sans-serif;
+  h2 {
+    font-size: 24px;
+  }
 }
 .left-bordered-card {
   border-left: 1px solid black;
@@ -163,5 +166,14 @@
     position: absolute;
     right: 12px;
     top: 12px;
+  }
+}
+#top-show-card {
+  display: flex;
+  align-items: center;
+  margin: 24px 0 20px 0;
+
+  h1 {
+    margin-left: 16px;
   }
 }
