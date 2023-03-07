@@ -24,23 +24,21 @@
   content: "";
   background: linear-gradient(
     45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
+  #2B3179,
+  #4265A5,
+  #74BADE,
+  #AA5AC6,
+  #74BADE,
+  #4265A5,
+  #2B3179,
   );
   position: absolute;
   top: -2px;
   left: -2px;
   background-size: 400%;
   z-index: -1;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   animation: glowing-btn-gradient 20s linear infinite;
@@ -86,9 +84,26 @@
 .btn-login {
   background-color: rgba(10,27,68,1);
   color: #ffffff;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: rgba(66,101,165,1);
+    color: #ffffff;
+  }
 }
 
-.btn-login:hover {
-  background-color: rgba(66,101,165,1);
+
+.btn-gradient {
+
+  background: rgb(10,27,68);
+  background: linear-gradient(45deg, rgba(10,27,68,1) 16%, rgba(66,101,165,1) 64%, rgba(170,90,198,1) 95%);
   color: #ffffff;
+  border-radius: 4px;
+
+  &:hover {
+    background: rgb(10,27,68);
+    background: linear-gradient(-45deg, rgba(10,27,68,1) 16%, rgba(66,101,165,1) 64%, rgba(170,90,198,1) 95%);
+    color: #ffffff;
+    transition: 0.4s;
+  }
 }
